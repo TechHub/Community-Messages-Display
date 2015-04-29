@@ -1,0 +1,20 @@
+<div class="container-fluid text-center header-strip">
+  <div class="big-title">
+    <img src="https://cdn.techhub.com/images/website/techhub_3d_logo_png.png" alt="Logo" height="90" class="logo">Community</div>
+</div>
+<div class="container-fluid content" ng-controller="MainCtrl">
+  <div class="panel panel-default panel-news" ng-repeat="message in data | filter:messageFilter | orderBy: '-sticky' | orderBy: '-timestamp' " ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-8 single-news-container">
+          <div class="single-news-title">{{ message.title }}</div>
+          <div class="single-news-content">{{ message.text }}</div>
+          <div class="single-news-alert text-danger">{{ message.alert }}</div>
+        </div>
+        <div class="col-lg-4">
+          <img ng-src="{{ message.image || 'https://cdn.techhub.com/images/website/techhub_3d_logo_png.png' }}" alt="" class="img-responsive center-block single-news-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
